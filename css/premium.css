@@ -1,0 +1,91 @@
+/* Premium motion layer. Everything here rests under prefers-reduced-motion; pointer effects only on a mouse. */
+
+/* 1. scroll progress, a hairline of lime across the top */
+.px-progress { position: fixed; left: 0; right: 0; top: 0; height: 2px; z-index: 30; pointer-events: none; transform-origin: 0 50%; transform: scaleX(0);
+  background: linear-gradient(90deg, #8fa02d, #c8d64f 60%, #3A7ABF); }
+
+/* 2. the nav turns to glass once the page moves */
+header.nav { transition: background-color .4s, box-shadow .4s, backdrop-filter .4s; }
+header.nav.px-glass { background: rgb(246 247 242 / .78); -webkit-backdrop-filter: saturate(1.6) blur(14px); backdrop-filter: saturate(1.6) blur(14px); box-shadow: 0 10px 30px -22px rgb(11 26 51 / .45); }
+
+/* 3. hero: a slow aurora behind the headline and a light that follows the pointer */
+.hero--centred { position: relative; isolation: isolate; overflow: clip; }
+.px-aurora { position: absolute; inset: -10% -10% auto; height: 80%; z-index: -1; pointer-events: none; filter: blur(60px); opacity: .9; }
+.px-aurora i { position: absolute; border-radius: 50%; }
+.px-aurora i:nth-child(1) { left: 18%; top: 10%; width: 38vw; height: 38vw; max-width: 560px; max-height: 560px; background: radial-gradient(closest-side, rgb(161 182 51 / .32), transparent); animation: px-drift-a 18s ease-in-out infinite alternate; }
+.px-aurora i:nth-child(2) { right: 14%; top: 0; width: 34vw; height: 34vw; max-width: 500px; max-height: 500px; background: radial-gradient(closest-side, rgb(58 122 191 / .22), transparent); animation: px-drift-b 22s ease-in-out infinite alternate; }
+.px-aurora i:nth-child(3) { left: 44%; top: 30%; width: 22vw; height: 22vw; max-width: 340px; max-height: 340px; background: radial-gradient(closest-side, rgb(200 214 79 / .30), transparent); animation: px-drift-c 15s ease-in-out infinite alternate; }
+@keyframes px-drift-a { to { transform: translate(8vw, 6vh) scale(1.15); } }
+@keyframes px-drift-b { to { transform: translate(-10vw, 8vh) scale(.9); } }
+@keyframes px-drift-c { to { transform: translate(-6vw, -4vh) scale(1.25); } }
+.px-spot { position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0; transition: opacity .6s;
+  background: radial-gradient(420px circle at var(--hx, 50%) var(--hy, 30%), rgb(161 182 51 / .14), transparent 60%); }
+.hero--centred:hover .px-spot { opacity: 1; }
+
+/* 4. headlines rise word by word out of a mask */
+.px-w { display: inline-block; overflow: clip; overflow-clip-margin: .14em; vertical-align: top; padding-bottom: .06em; margin-bottom: -.06em; }
+.px-w > span { display: inline-block; will-change: transform; }
+html.px-on .px-split:not(.px-in) .px-w > span { transform: translateY(108%) rotate(4deg); opacity: 0; filter: blur(6px); }
+html.px-on .px-split .px-w > span { transition: transform 1s cubic-bezier(.16,1,.3,1), opacity .8s ease, filter .8s ease; transition-delay: calc(var(--wi) * 55ms); }
+
+/* 5. the hero window lies back in perspective and stands up as the page scrolls */
+.hero--centred .hero__window { transform-origin: 50% 0; will-change: transform; }
+html.px-on .hero--centred .hero__window { transform: perspective(1600px) rotateX(var(--px-tilt, 14deg)) scale(var(--px-sc, .94)) translateY(var(--px-ty, 0px)); }
+html.px-on .hero--centred .hero__window.px-enter { transition: transform 1.6s cubic-bezier(.16,1,.3,1), opacity 1.2s ease; }
+html.px-on .hero--centred .hero__window:not(.px-shown) { opacity: 0; --px-ty: 80px; --px-tilt: 26deg; }
+
+/* 6. cards answer the pointer: a soft light under the cursor; the plans tilt a little */
+.px-glow { position: relative; }
+.px-glow::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 2; opacity: 0; transition: opacity .4s;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgb(255 255 255 / .55), transparent 55%); mix-blend-mode: soft-light; }
+.px-glow:hover::after { opacity: 1; }
+.card--plan.px-glow::after { background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(161 182 51 / .16), transparent 55%); mix-blend-mode: normal; }
+.card--plan { transition: transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s; transform-style: preserve-3d; }
+.card--plan.px-tilting { box-shadow: 0 30px 60px -30px rgb(11 26 51 / .35); }
+
+/* 7. the featured plan: a light runs round its border */
+@property --px-ang { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+.card--plan.is-featured { border-color: transparent; background:
+  linear-gradient(var(--card, #fff), var(--card, #fff)) padding-box,
+  conic-gradient(from var(--px-ang), #A1B633, #e9f0c4 25%, #3A7ABF 45%, #A1B633 60%, #c8d64f 80%, #A1B633) border-box;
+  border: 1.5px solid transparent; animation: px-spin 6s linear infinite; }
+@keyframes px-spin { to { --px-ang: 360deg; } }
+
+/* 8. primary buttons: a sheen sweeps across on hover */
+.btn--primary { position: relative; overflow: hidden; isolation: isolate; }
+.btn--primary::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(105deg, transparent 30%, rgb(255 255 255 / .55) 48%, transparent 66%); transform: translateX(-120%); }
+.btn--primary:hover::before { transition: transform .9s cubic-bezier(.16,1,.3,1); transform: translateX(120%); }
+.px-mag { transition: translate .5s cubic-bezier(.16,1,.3,1); }
+
+/* 9. photographs open like a curtain and settle */
+html.px-on .px-reveal { clip-path: inset(100% 0 0 0 round var(--r-lg, 20px)); transition: clip-path 1.3s cubic-bezier(.16,1,.3,1); }
+html.px-on .px-reveal > img { transform: scale(1.18); transition: transform 1.8s cubic-bezier(.16,1,.3,1); }
+html.px-on .px-reveal.px-in { clip-path: inset(0 0 0 0 round var(--r-lg, 20px)); }
+html.px-on .px-reveal.px-in > img { transform: scale(1); }
+.close__media > img { will-change: transform; }
+
+/* 10. a slow ticker of what GrowEzy does, at the foot of the navy band */
+.px-ticker { position: absolute; left: 0; right: 0; bottom: 28px; overflow: hidden; z-index: 1;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.px-ticker__t { display: flex; width: max-content; gap: 40px; animation: px-tick 46s linear infinite; }
+.px-ticker span { display: inline-flex; align-items: center; gap: 40px; white-space: nowrap; font: 500 15px/1 var(--font-text); color: rgb(255 255 255 / .62); }
+.px-ticker span::after { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #A1B633; }
+@keyframes px-tick { to { transform: translateX(-50%); } }
+#statement:hover .px-ticker__t { animation-play-state: paused; }
+
+/* 11. FAQ topics: the active pill slides between them */
+.fq-tabs { position: relative; }
+.fq-ind { position: absolute; left: 0; right: 0; top: 0; height: 48px; border-radius: 12px; background: #fff; border: 1px solid var(--line);
+  box-shadow: 0 1px 2px rgb(11 26 51 / .05), 0 8px 24px -14px rgb(11 26 51 / .25); transition: transform .5s cubic-bezier(.16,1,.3,1), height .5s; z-index: 0; pointer-events: none; }
+.fq-tabs.px-has-ind .fq-tab { position: relative; z-index: 1; }
+.fq-tabs.px-has-ind .fq-tab[aria-selected="true"] { background: transparent; border-color: transparent; box-shadow: none; }
+@media (max-width: 639px) { .fq-ind { display: none; } .fq-tabs.px-has-ind .fq-tab[aria-selected="true"] { background: #fff; border-color: var(--line); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .px-aurora i, .px-ticker__t, .card--plan.is-featured { animation: none; }
+  .px-progress { display: none; }
+}
+@media (hover: none), (pointer: coarse) { .px-spot, .px-glow::after { display: none; } }
+@media (max-width: 1023px) { .px-ticker { display: none; } }
+.close__media.px-reveal > img { transition: none; }
