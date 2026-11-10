@@ -475,3 +475,17 @@ html.rv-on .ptabs[data-reveal] > * { transition-delay: 0s; }
   .gx-float { width: 300px; }
 }
 #statement .wrap { min-height: 0; } #statement { padding-bottom: 130px !important; }
+
+/* breathing room */
+main > section.section { padding-top: clamp(88px, 9vw, 144px); padding-bottom: clamp(88px, 9vw, 144px); }
+main > section.section + section.section:not(.ground-inverse):not(.ground-surface) { padding-top: clamp(48px, 5vw, 88px); }
+.help-copy h2 { margin-bottom: 24px; }
+.helps { grid-template-columns: 1fr; gap: 26px; margin-top: 8px; }
+.helps li { grid-template-columns: 44px 1fr; gap: 18px; }
+.helps .mod__ic { width: 44px; height: 44px; }
+.helps b { font-size: 17px; margin-bottom: 6px; }
+.helps p { font-size: 15px; line-height: 1.6; max-width: 46ch; }
+.help-vis { min-height: 680px; }
+.section-head p, .grid .stack-4 > p, .t-lead { line-height: 1.65; }
+.stack-5 > * + * { margin-top: 4px; }
+.helps { gap: 22px; } .helps p { max-width: 52ch; }
