@@ -91,3 +91,9 @@ body.pg main > section { height: auto !important; min-height: 0 !important; }
 body.pg .wrap.lg-hero__in, body.pg .wrap.lg-grid { display: grid; }
 body.pg .wrap.nf__in { display: grid; }
 @media (max-width: 1023px) { body.pg .wrap.lg-grid { grid-template-columns: 1fr; } }
+
+/* inner pages: the footer is only the link directory, as tall as its content */
+body.pg footer.closing { height: auto !important; min-height: 0 !important; padding: 64px 0 28px !important; border-top: 1px solid var(--line); }
+body.pg footer.closing > .wrap { display: block !important; height: auto !important; }
+body.pg footer.closing .closing__links { margin: 0; }
+body.pg footer.closing .footer__legal { margin-top: 40px; }
