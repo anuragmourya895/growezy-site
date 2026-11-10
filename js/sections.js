@@ -73,11 +73,25 @@
     onView(pipe, function () { if (!id) { cycle(); id = setInterval(cycle, 7000); } }, function () { clearInterval(id); id = null; });
   }
 
+  /* leads: the first lead moves Not Contacted -> In progress -> Converted */
+  var lr = document.querySelector('[data-gx-lead]');
+  if (lr) {
+    var cell = lr.children[2], conv = document.querySelector('[data-gx-conv]'), ls = 0, lt = null;
+    var states = [['Not Contacted', '#fef3c7', '#b45309', 18], ['In progress', '#f4f7e8', '#5d6c18', 18], ['Converted', '#d1fae5', '#047857', 19]];
+    function step() {
+      ls = (ls + 1) % states.length; var st = states[ls], pill = cell.querySelector('.gx-ls');
+      pill.textContent = st[0]; pill.style.setProperty('--bg', st[1]); pill.style.setProperty('--c', st[2]);
+      if (conv) conv.textContent = st[3];
+      lr.classList.toggle('is-flash', ls === 2);
+    }
+    onView(lr.closest('.gx'), function () { if (!lt) lt = setInterval(step, 2200); }, function () { clearInterval(lt); lt = null; });
+  }
+
   /* campaigns: the merge tag fills with one customer after another */
   var camp = document.querySelector('[data-gx-camp]');
   if (camp) {
     var names = ['Meera', 'Ramesh', 'Sunita', 'Faisal', 'Kavita', 'Anil'], k = 0, tid = null;
-    var slots = camp.querySelectorAll('[data-gx-name]');
+    var slots = document.querySelectorAll('[data-gx-name]');
     function next() {
       k = (k + 1) % names.length;
       slots.forEach(function (s) { s.style.opacity = '0'; });
