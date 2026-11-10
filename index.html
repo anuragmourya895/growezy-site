@@ -45,11 +45,11 @@
 <link rel="stylesheet" href="assets/ui/base.css">
 <link rel="stylesheet" href="assets/diagrams/diagram.css">
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/app-mock.css">
-<link rel="stylesheet" href="css/wa-phone.css">
-<link rel="stylesheet" href="css/site.css">
-<link rel="stylesheet" href="css/premium.css">
-<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/app-mock.css?v=8">
+<link rel="stylesheet" href="css/wa-phone.css?v=8">
+<link rel="stylesheet" href="css/site.css?v=8">
+<link rel="stylesheet" href="css/premium.css?v=8">
+<link rel="stylesheet" href="css/sections.css?v=8">
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
@@ -582,38 +582,20 @@
 
   <section class="section ground-surface" style="--hm: 2" id="setup" aria-labelledby="setup-h" data-moment="line-carries-colour" data-moment-opts='{"from": "base"}'>
     <div class="wrap">
-      <div class="section-head">
-        <h2 id="setup-h">Up and running in 3 steps</h2>
-        <p>Start with the customer list you already keep in Excel. Most of the work after that is done by GrowEzy.</p>
+      <div class="section-head section-head--row">
+        <div><h2 id="setup-h">Up and running in 3 steps</h2>
+        <p>Start with the customer list you already keep in Excel. Most of the work after that is done by GrowEzy.</p></div>
       </div>
-      <div class="grid">
-        <article class="card card--row span-4 m-nolift">
-          <span class="step-num">1</span>
-          <h3>Import your customer book</h3>
-          <p>Add customers one by one or import your list, with help for large imports.</p>
-          <div class="panel panel--flush panel--gx">
-            <div class="gx-stage gx-stage--step"><div class="gx gx-menu" data-gx aria-hidden="true"><small>Add customers</small>
- <span><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-upload"/></svg>Upload Policy</span><span class="is-on"><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-excel"/></svg>Import from Excel</span><span><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-pen"/></svg>Manual Entry</span></div></div>
-          </div>
-        </article>
-        <article class="card card--row span-4 m-nolift">
-          <span class="step-num">2</span>
-          <h3>Upload your policy PDFs</h3>
-          <p>Drop in several PDFs at once and confirm what the AI reads.</p>
-          <div class="panel panel--flush panel--gx">
-            <div class="gx-stage gx-stage--step"><div class="gx gx-drop" data-gx aria-hidden="true"><div class="gx-drop__z"><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-upload"/></svg><b>Drop PDFs here or click to browse</b><small>Motor, health, and SME policies</small><span class="gx-tags"><span>Motor</span><span>Health</span><span>SME</span><span>PDF only</span></span></div>
- <span class="gx-drop__st"><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-okc"/></svg>Ready — 3 PDFs selected</span></div></div>
-          </div>
-        </article>
-        <article class="card card--row span-4 m-nolift">
-          <span class="step-num">3</span>
-          <h3>Start a renewal campaign</h3>
-          <p>Pick customers due for renewal and let the reminders repeat daily.</p>
-          <div class="panel panel--flush panel--gx">
-            <div class="gx-stage gx-stage--step"><div class="gx gx-menu" data-gx aria-hidden="true"><small>Pick a group</small>
- <span class="is-on"><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-refresh"/></svg>Renewal in 30 days</span><span><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-refresh"/></svg>Renewal in 7 days</span><span><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-alert"/></svg>Overdue renewals</span><span><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-cal"/></svg>Birthday</span>
- <small>When to send</small><span><svg class="fi" viewBox="0 0 24 24" aria-hidden="true"><use href="#fi-clock"/></svg>Repeat · Every day</span></div></div>
-          </div>
+      <div class="stps" data-stps>
+        <article class="stp" style="--i:0">
+          <div class="stp__media"><img src="images/step-import.jpg" alt="" width="1536" height="1024" loading="lazy"><span class="stp__num">01</span><span class="stp__when">Day 1</span></div>
+          <div class="stp__body"><h3>Import your customer book</h3><p>Bring the list you already keep in Excel, add customers one by one, or upload policies straight away. We help with large imports.</p><div class="stp__pills"><span>Upload Policy</span><span>Import from Excel</span><span>Manual Entry</span></div></div>
+        </article><article class="stp" style="--i:1">
+          <div class="stp__media"><img src="images/step-upload.jpg" alt="" width="1536" height="1024" loading="lazy"><span class="stp__num">02</span><span class="stp__when">Minutes</span></div>
+          <div class="stp__body"><h3>Upload your policy PDFs</h3><p>Drop in several PDFs at once. AI reads each one, flags what to check, and saves only after you confirm.</p><div class="stp__pills"><span>Motor</span><span>Health</span><span>SME</span><span>PDF only</span></div></div>
+        </article><article class="stp" style="--i:2">
+          <div class="stp__media"><img src="images/step-campaign.jpg" alt="" width="1536" height="1024" loading="lazy"><span class="stp__num">03</span><span class="stp__when">Ongoing</span></div>
+          <div class="stp__body"><h3>Start a renewal campaign</h3><p>Pick customers with a renewal in 30 days, choose WhatsApp, SMS or email, and let the reminders repeat every day.</p><div class="stp__pills"><span>Renewal in 30 days</span><span>Repeat · Every day</span></div></div>
         </article>
       </div>
     </div>
@@ -761,9 +743,9 @@
 <script type="module" src="assets/motion/motion.js"></script>
 <script type="module" src="assets/layout/layout.js"></script>
 <script type="module" src="assets/diagrams/mount.js"></script>
-<script src="js/site.js" defer></script>
-<script src="js/app-mock.js" defer></script>
-<script src="js/premium.js" defer></script>
-<script src="js/sections.js" defer></script>
+<script src="js/site.js?v=8" defer></script>
+<script src="js/app-mock.js?v=8" defer></script>
+<script src="js/premium.js?v=8" defer></script>
+<script src="js/sections.js?v=8" defer></script>
 </body>
 </html>

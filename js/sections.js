@@ -139,3 +139,11 @@
     requestAnimationFrame(loop);
   })(performance.now());
 })();
+
+/* setup steps enter one after another */
+(function () {
+  var g = document.querySelector('[data-stps]'); if (!g) return;
+  if (!('IntersectionObserver' in window)) { g.classList.add('is-in'); return; }
+  var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { g.classList.add('is-in'); io.disconnect(); } }, { threshold: 0.2 });
+  io.observe(g); setTimeout(function () { g.classList.add('is-in'); }, 8000);
+})();
