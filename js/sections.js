@@ -17,7 +17,9 @@
     var st = form.querySelector('.cform__st'), btn = form.querySelector('[type="submit"]'), busy = false;
     var host = location.hostname, local = host === 'localhost' || host === '127.0.0.1';
     var endpoint = local ? 'http://localhost:4000/support/website-contact' : 'https://app.growezy.in/support/website-contact';
-    function say(t, cls) { st.textContent = t; st.className = 'cform__st' + (cls ? ' ' + cls : ''); }
+    var stSpan = st.querySelector('span'), stDefault = stSpan ? stSpan.innerHTML : '';
+    function say(t, cls) { if (stSpan) stSpan.textContent = t; else st.textContent = t; st.className = 'cform__st' + (cls ? ' ' + cls : ''); }
+    form.addEventListener('input', function (e) { if (e.target.getAttribute('aria-invalid') === 'true' && e.target.checkValidity()) e.target.setAttribute('aria-invalid', 'false'); });
     form.addEventListener('submit', function (e) {
       e.preventDefault(); if (busy) return;
       var bad = null;
@@ -26,16 +28,16 @@
       });
       var mob = form.mobile.value.replace(/\D/g, '').slice(-10);
       if (mob.length !== 10) { form.mobile.setAttribute('aria-invalid', 'true'); bad = bad || form.mobile; }
-      if (bad) { say('Please fill in every field. The message needs at least 10 characters.', 'is-err'); bad.focus(); return; }
+      if (bad) { say('Please check the highlighted fields.', 'is-err'); bad.focus(); return; }
       var data = { name: form.name.value.trim(), email: form.email.value.trim(), mobile: mob, city: form.city.value.trim(), company: form.company.value.trim(),
         team: form.team.value, interest: form.interest.value, message: form.message.value.trim() };
       if (form.website.value) data.website = form.website.value;
-      busy = true; btn.disabled = true; say('Sending…');
+      busy = true; btn.disabled = true; btn.classList.add('is-busy'); say('Sending…');
       fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
         .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json().catch(function () { return {}; }); })
         .then(function () { form.reset(); say('Thank you. Your message reached support@growezy.in and we will reply soon.', 'is-ok'); })
         .catch(function () { say('Could not send right now. Please email support@growezy.in or WhatsApp +91 87790 04488.', 'is-err'); })
-        .then(function () { busy = false; btn.disabled = false; });
+        .then(function () { busy = false; btn.disabled = false; btn.classList.remove('is-busy'); });
     });
   }
 
