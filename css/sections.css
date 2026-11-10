@@ -516,3 +516,12 @@ main > section.section + section.section:not(.ground-inverse):not(.ground-surfac
 }
 .gx-wiz__prev .gx-greet b { color: #fff; font-weight: 600; }
 .camp-photo__chip { left: auto; right: 16px; transform: none; font-size: 12px; padding: 8px 12px 8px 9px; }
+.camp-photo__stats { position: absolute; left: 64px; right: 16px; bottom: 16px; z-index: 2; }
+.camp-photo__stats .gx-cstats { width: auto; animation: gx-bob 7s ease-in-out -2s infinite; }
+@media (max-width: 639px) { .camp-photo__stats { left: 12px; right: 12px; bottom: 12px; } }
+.camp-photo { overflow: visible; }
+.camp-photo > img { border-radius: 24px; }
+.camp-vis:hover .camp-photo > img { transform: none; }
+.camp-photo__stats { left: -36px; right: -28px; bottom: 28px; }
+.camp-photo__stats .gx-cstats small { white-space: nowrap; }
+@media (max-width: 1279px) { .camp-photo__stats { left: 12px; right: 12px; } }
