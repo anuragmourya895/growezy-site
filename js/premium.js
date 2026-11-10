@@ -16,6 +16,9 @@
     var sp = document.createElement('div'); sp.className = 'px-spot'; sp.setAttribute('aria-hidden', 'true');
     hero.prepend(sp); hero.prepend(au);
   }
+  /* the same drifting light behind every page, fixed to the screen */
+  var pa = document.createElement('div'); pa.className = 'px-aurora px-aurora--page'; pa.setAttribute('aria-hidden', 'true');
+  pa.innerHTML = '<i></i><i></i><i></i><i></i>'; document.body.prepend(pa);
   var band = $('#statement');
   if (band) {
     var words = ['Renewal reminders', 'Policy PDFs read by AI', 'Commission tracking', 'WhatsApp Business inbox', 'Renewal reconciliation', 'Leads and quotes', 'Claims', 'Team targets', 'Unlimited agency codes', 'Support AI'];

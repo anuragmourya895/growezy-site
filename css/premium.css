@@ -89,3 +89,13 @@ html.px-on .px-reveal.px-in > img { transform: scale(1); }
 @media (hover: none), (pointer: coarse) { .px-spot, .px-glow::after { display: none; } }
 @media (max-width: 1023px) { .px-ticker { display: none; } }
 .close__media.px-reveal > img { transition: none; }
+
+/* page-wide aurora: soft lime and blue lights drifting behind every page */
+.px-aurora--page { position: fixed; inset: 0; height: auto; z-index: -1; filter: blur(60px); opacity: .9; pointer-events: none; overflow: hidden; }
+.px-aurora--page i { position: absolute; border-radius: 50%; max-width: none; max-height: none; }
+.px-aurora--page i:nth-child(1) { left: -8vw; top: 10vh; width: 42vw; height: 42vw; background: radial-gradient(closest-side, rgb(161 182 51 / .32), transparent); animation: px-drift-a 22s ease-in-out infinite alternate; }
+.px-aurora--page i:nth-child(2) { right: -10vw; top: -6vh; width: 40vw; height: 40vw; background: radial-gradient(closest-side, rgb(58 122 191 / .2), transparent); animation: px-drift-b 26s ease-in-out infinite alternate; }
+.px-aurora--page i:nth-child(3) { right: 8vw; bottom: -12vh; width: 34vw; height: 34vw; background: radial-gradient(closest-side, rgb(200 214 79 / .3), transparent); animation: px-drift-c 19s ease-in-out infinite alternate; }
+.px-aurora--page i:nth-child(4) { left: 30vw; bottom: 20vh; width: 26vw; height: 26vw; background: radial-gradient(closest-side, rgb(58 122 191 / .1), transparent); animation: px-drift-a 24s ease-in-out -8s infinite alternate-reverse; }
+@media (prefers-reduced-motion: reduce) { .px-aurora--page i { animation: none; } }
+@media (max-width: 639px) { .px-aurora--page { opacity: .6; } }
