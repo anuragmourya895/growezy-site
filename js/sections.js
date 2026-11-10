@@ -100,3 +100,42 @@
     onView(camp, function () { if (!tid) tid = setInterval(next, 1800); }, function () { clearInterval(tid); tid = null; });
   }
 })();
+
+/* platform tabs: switch on click or arrow keys; advance by themselves every 6 s, paused on hover or focus,
+   and stopped for good once the visitor picks a tab */
+(function () {
+  'use strict';
+  var root = document.querySelector('.ptabs'); if (!root) return;
+  var tabs = [].slice.call(root.querySelectorAll('.ptab'));
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cur = 0, t0 = 0, held = false, stopped = still, seen = false, DUR = 6000;
+  function pick(i, focus) {
+    cur = i; t0 = performance.now();
+    tabs.forEach(function (t, k) {
+      var on = k === i;
+      t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1; t.style.setProperty('--p', 0);
+      var p = document.getElementById(t.getAttribute('aria-controls')); if (p) p.hidden = !on;
+    });
+    if (focus) tabs[i].focus();
+  }
+  tabs.forEach(function (t, k) {
+    t.addEventListener('click', function (e) { if (e.isTrusted) stopped = true; pick(k); });
+    t.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 0;
+      if (!d) return; e.preventDefault(); stopped = true; pick((k + d + tabs.length) % tabs.length, true);
+    });
+  });
+  root.addEventListener('pointerenter', function () { held = true; });
+  root.addEventListener('pointerleave', function () { held = false; t0 = performance.now() - (parseFloat(tabs[cur].style.getPropertyValue('--p')) || 0) * DUR; });
+  root.addEventListener('focusin', function () { held = true; });
+  root.addEventListener('focusout', function () { held = false; });
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { seen = es[0].isIntersecting; if (seen) t0 = performance.now() - (parseFloat(tabs[cur].style.getPropertyValue('--p')) || 0) * DUR; }, { threshold: 0.35 }).observe(root);
+  (function loop(now) {
+    if (!stopped && seen && !held) {
+      var k = (now - t0) / DUR;
+      tabs[cur].style.setProperty('--p', Math.min(1, k).toFixed(3));
+      if (k >= 1) pick((cur + 1) % tabs.length);
+    } else if (stopped) { tabs[cur].style.setProperty('--p', 1); }
+    requestAnimationFrame(loop);
+  })(performance.now());
+})();
