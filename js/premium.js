@@ -115,9 +115,9 @@
   });
 
   /* card lights, and a small 3D tilt on the plans */
-  $$('.card--plan, .panel--gx, #advisors .tile__media, .frame--gx').forEach(function (c) {
+  $$('.pcard, .panel--gx, #advisors .tile__media, .frame--gx').forEach(function (c) {
     c.classList.add('px-glow');
-    var plan = c.classList.contains('card--plan');
+    var plan = c.classList.contains('pcard');
     c.addEventListener('pointermove', function (e) {
       var r = c.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
       c.style.setProperty('--mx', x + 'px'); c.style.setProperty('--my', y + 'px');

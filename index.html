@@ -45,11 +45,11 @@
 <link rel="stylesheet" href="assets/ui/base.css">
 <link rel="stylesheet" href="assets/diagrams/diagram.css">
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/app-mock.css?v=8">
-<link rel="stylesheet" href="css/wa-phone.css?v=8">
-<link rel="stylesheet" href="css/site.css?v=8">
-<link rel="stylesheet" href="css/premium.css?v=8">
-<link rel="stylesheet" href="css/sections.css?v=8">
+<link rel="stylesheet" href="css/app-mock.css?v=10">
+<link rel="stylesheet" href="css/wa-phone.css?v=10">
+<link rel="stylesheet" href="css/site.css?v=10">
+<link rel="stylesheet" href="css/premium.css?v=10">
+<link rel="stylesheet" href="css/sections.css?v=10">
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="assets/backgrounds/backgrounds.js"></script>
 <script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
@@ -613,47 +613,41 @@
           <button type="button" role="tab" aria-selected="true" data-bill="yearly">Yearly<span class="save">save up to 30%</span></button>
         </div>
       </div>
-      <div class="grid" data-reveal>
-        <article class="card card--plan span-4 m-nolift" style="--i:0">
-          <h3>Grow Lite</h3>
-          <p class="price" data-monthly="₹750" data-yearly="₹600"><span class="t-stat">₹600</span><small>/ month</small></p>
-          <p class="plan-note" data-monthly="Billed monthly" data-yearly="₹7,200 billed yearly, save 20%">₹7,200 billed yearly, save 20%</p>
-          <a class="btn btn--secondary" href="https://app.growezy.in/signup?plan=grow-lite">Choose Grow Lite</a>
-          <ul class="checks">
-            <li><span>Customers, leads, quotes, renewals and claims</span></li>
-            <li><span>Unlimited agency partnerships</span></li>
-            <li><span><b>1,200</b> AI document uploads a year</span></li>
-            <li><span>AI assistant, unlimited email reminders, 1 login</span></li>
-          </ul>
-        </article>
-        <article class="card card--plan is-featured span-4 m-nolift" style="--i:1">
-          <div class="plan-head"><h3>Grow Plus</h3><span class="badge">Most popular</span></div>
-          <p class="price" data-monthly="₹1,750" data-yearly="₹1,313"><span class="t-stat">₹1,313</span><small>/ month</small></p>
-          <p class="plan-note" data-monthly="Billed monthly" data-yearly="₹15,750 billed yearly, save 25%">₹15,750 billed yearly, save 25%</p>
-          <a class="btn btn--primary" href="https://app.growezy.in/signup?plan=grow-plus">Try Grow Plus free</a>
-          <ul class="checks">
-            <li><span>Everything in Lite, plus live commission tracking</span></li>
-            <li><span><b>5</b> logins with roles and team reports</span></li>
-            <li><span><b>6,000</b> AI uploads and <b>6,000</b> SMS a year</span></li>
-            <li class="plan-msg"><span>WhatsApp Business setup and campaigns <img src="assets/icons/whatsapp.svg" alt="" width="20" height="20"></span></li>
-          </ul>
-        </article>
-        <article class="card card--plan span-4 m-nolift" style="--i:2">
-          <h3>Grow Pro</h3>
-          <p class="price" data-monthly="₹2,750" data-yearly="₹1,925"><span class="t-stat">₹1,925</span><small>/ month</small></p>
-          <p class="plan-note" data-monthly="Billed monthly" data-yearly="₹23,100 billed yearly, save 30%">₹23,100 billed yearly, save 30%</p>
-          <a class="btn btn--secondary" href="https://app.growezy.in/signup?plan=grow-pro">Choose Grow Pro</a>
-          <ul class="checks">
-            <li><span><b>10</b> logins with roles and targets</span></li>
-            <li><span><b>12,000</b> AI uploads and <b>12,000</b> SMS a year</span></li>
-            <li><span>Personalised video in campaigns</span></li>
-            <li><span>25 GB storage and everything in Grow Plus</span></li>
-          </ul>
-        </article>
-      </div>
+      <div class="pcards" data-reveal><article class="pcard" style="--i:0">
+          <div class="pcard__media"><img src="images/plan-lite.jpg" alt="" width="900" height="600" loading="lazy"></div>
+          <div class="pcard__body">
+            <div class="pcard__head"><h3>Grow Lite</h3><p>For a solo advisor organising the book</p></div>
+            <p class="price" data-monthly="₹750" data-yearly="₹600"><span class="t-stat">₹600</span><small>/ month</small></p>
+            <p class="plan-note" data-monthly="Billed monthly" data-yearly="₹7,200 billed yearly, save 20%">₹7,200 billed yearly, save 20%</p>
+            <a class="pcard__cta" href="https://app.growezy.in/signup?plan=grow-lite">Choose Grow Lite<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <p class="pcard__inc">Everything to run your book</p>
+            <ul class="pcard__list"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Customers, leads, quotes, renewals and claims</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Unlimited agency partnerships</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>1,200</b> AI document uploads a year</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>AI assistant and unlimited email reminders</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>1 login · 5 GB storage</span></li></ul>
+          </div>
+        </article><article class="pcard pcard--feat card--plan is-featured" style="--i:1">
+          <div class="pcard__media"><img src="images/plan-plus.jpg" alt="" width="900" height="600" loading="lazy"><span class="pcard__badge">Most popular</span></div>
+          <div class="pcard__body">
+            <div class="pcard__head"><h3>Grow Plus</h3><p>For advisors with a small back office</p></div>
+            <p class="price" data-monthly="₹1,750" data-yearly="₹1,313"><span class="t-stat">₹1,313</span><small>/ month</small></p>
+            <p class="plan-note" data-monthly="Billed monthly" data-yearly="₹15,750 billed yearly, save 25%">₹15,750 billed yearly, save 25%</p>
+            <a class="pcard__cta" href="https://app.growezy.in/signup?plan=grow-plus">Try Grow Plus free<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="pcard__trial">15 days free · no card</span>
+            <p class="pcard__inc">Everything in Lite, plus</p>
+            <ul class="pcard__list"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Commission rules and reconciliation</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>5</b> logins with roles and team reports</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>6,000</b> AI uploads and <b>6,000</b> SMS a year</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>WhatsApp Business inbox and campaigns</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Personalised greeting images · 10 GB</span></li></ul>
+          </div>
+        </article><article class="pcard" style="--i:2">
+          <div class="pcard__media"><img src="images/plan-pro.jpg" alt="" width="900" height="600" loading="lazy"></div>
+          <div class="pcard__body">
+            <div class="pcard__head"><h3>Grow Pro</h3><p>For brokers and multi-team agencies</p></div>
+            <p class="price" data-monthly="₹2,750" data-yearly="₹1,925"><span class="t-stat">₹1,925</span><small>/ month</small></p>
+            <p class="plan-note" data-monthly="Billed monthly" data-yearly="₹23,100 billed yearly, save 30%">₹23,100 billed yearly, save 30%</p>
+            <a class="pcard__cta" href="https://app.growezy.in/signup?plan=grow-pro">Choose Grow Pro<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <p class="pcard__inc">Everything in Plus, plus</p>
+            <ul class="pcard__list"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>10</b> logins with roles and targets</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>12,000</b> AI uploads and <b>12,000</b> SMS a year</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Personalised video in campaigns</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Priority support with guided setup</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>25 GB storage</span></li></ul>
+          </div>
+        </article></div>
       <div class="plan-ent">
-        <p><b>Enterprise</b> · More logins and a custom setup for IMFs, corporate agents and brokers.</p>
-        <a class="link" href="mailto:support@growezy.in?subject=GrowEzy%20Enterprise">Talk to our team</a>
+        <div class="plan-ent__ic"><img src="images/mod-team.jpg" alt="" width="520" height="520" loading="lazy"></div>
+        <p><b>Enterprise</b><span>More logins and a custom setup for IMFs, corporate agents and brokers.</span></p>
+        <a class="pcard__cta pcard__cta--ghost" href="#contact">Talk to our team<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <button class="cmp-btn" type="button" aria-expanded="false" aria-controls="compare">Compare every feature <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
       <div class="cmp" id="compare" hidden><table><thead><tr><th>Feature</th><th>Grow Lite</th><th>Grow Plus</th><th>Grow Pro</th></tr></thead><tbody><tr class="cmp-g"><th colspan="4">Core</th></tr><tr><td>Agency partnerships</td><td>Unlimited</td><td>Unlimited</td><td>Unlimited</td></tr><tr><td>Customers, policies and documents</td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td></tr><tr><td>Leads and quotes</td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td></tr><tr><td>Renewals with reconciliation</td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td></tr><tr><td>Claims management</td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td></tr><tr><td>Calendar and task reminders</td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td></tr><tr><td>Dashboard</td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td></tr><tr><td>Business reports</td><td>Predefined</td><td>Advanced, custom, team</td><td>Advanced, custom, team</td></tr><tr><td>Commission rules and statement reconciliation</td><td><span class="cmp-n" aria-label="Not included">—</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td></tr><tr><td>Storage</td><td>5 GB</td><td>10 GB</td><td>25 GB</td></tr><tr class="cmp-g"><th colspan="4">AI</th></tr><tr><td>AI uploads a year (policies, renewal notices, quotes)</td><td>1,200</td><td>6,000</td><td>12,000</td></tr><tr><td>AI assistant</td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td></tr><tr class="cmp-g"><th colspan="4">Team</th></tr><tr><td>Logins</td><td>1</td><td>5</td><td>10</td></tr><tr><td>Business targets and member dashboards</td><td><span class="cmp-n" aria-label="Not included">—</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td></tr><tr><td>Role-based access</td><td><span class="cmp-n" aria-label="Not included">—</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td></tr><tr><td>Team reports and analytics</td><td><span class="cmp-n" aria-label="Not included">—</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td></tr><tr class="cmp-g"><th colspan="4">Customer engagement</th></tr><tr><td>Email reminders and campaigns</td><td>Unlimited</td><td>Unlimited</td><td>Unlimited</td></tr><tr><td>SMS a year</td><td><span class="cmp-n" aria-label="Not included">—</span></td><td>6,000</td><td>12,000</td></tr><tr><td>WhatsApp Business API setup and campaigns</td><td><span class="cmp-n" aria-label="Not included">—</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td></tr><tr><td>Personalised creatives</td><td><span class="cmp-n" aria-label="Not included">—</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td><td><span class="cmp-y" aria-label="Included">✓</span></td></tr></tbody></table></div>
@@ -743,9 +737,9 @@
 <script type="module" src="assets/motion/motion.js"></script>
 <script type="module" src="assets/layout/layout.js"></script>
 <script type="module" src="assets/diagrams/mount.js"></script>
-<script src="js/site.js?v=8" defer></script>
-<script src="js/app-mock.js?v=8" defer></script>
-<script src="js/premium.js?v=8" defer></script>
-<script src="js/sections.js?v=8" defer></script>
+<script src="js/site.js?v=10" defer></script>
+<script src="js/app-mock.js?v=10" defer></script>
+<script src="js/premium.js?v=10" defer></script>
+<script src="js/sections.js?v=10" defer></script>
 </body>
 </html>
