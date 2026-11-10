@@ -463,3 +463,15 @@ html.rv-on .ptabs[data-reveal] > * { transition-delay: 0s; }
   .ptab__n { width: 32px; height: 32px; font-size: 12px; }
   .ptab__t b { font-size: 15px; }
 }
+
+/* navy band: the headline keeps clear of the floating renewal cards */
+#statement .mo-lt__type { font-size: clamp(44px, 5.6vw, 92px); line-height: 1.02; max-width: none; }
+@media (min-width: 1024px) {
+  #statement [data-moment="liquid-type"] { max-width: calc(100% - 420px); }
+  .gx-float { width: 360px; }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  #statement [data-moment="liquid-type"] { max-width: calc(100% - 340px); }
+  .gx-float { width: 300px; }
+}
+#statement .wrap { min-height: 0; } #statement { padding-bottom: 130px !important; }
