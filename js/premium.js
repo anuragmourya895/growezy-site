@@ -10,7 +10,7 @@
   var $$ = function (s, c) { return [].slice.call((c || document).querySelectorAll(s)); };
 
   /* the ticker and the hero decor are markup either way */
-  var hero = $('.hero--centred');
+  var hero = $('main > .hero');
   if (hero) {
     var au = document.createElement('div'); au.className = 'px-aurora'; au.setAttribute('aria-hidden', 'true'); au.innerHTML = '<i></i><i></i><i></i>';
     var sp = document.createElement('div'); sp.className = 'px-spot'; sp.setAttribute('aria-hidden', 'true');
@@ -21,7 +21,7 @@
   pa.innerHTML = '<i></i><i></i><i></i><i></i>'; document.body.prepend(pa);
   var band = $('#statement');
   if (band) {
-    var words = ['Renewal reminders', 'Policy PDFs read by AI', 'Commission tracking', 'WhatsApp Business inbox', 'Renewal reconciliation', 'Leads and quotes', 'Claims', 'Team targets', 'Unlimited agency codes', 'Support AI'];
+    var words = ['Renewal reminders', 'Policy PDFs read by AI', 'Commission tracking', 'WhatsApp inbox', 'Birthday wishes', 'Leads and quotes', 'Claims', 'Team targets', 'Unlimited insurers', 'Help any time'];
     var row = words.map(function (w) { return '<span>' + w + '</span>'; }).join('');
     var tk = document.createElement('div'); tk.className = 'px-ticker'; tk.setAttribute('aria-hidden', 'true');
     tk.innerHTML = '<div class="px-ticker__t">' + row + row + '</div>';

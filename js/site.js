@@ -49,8 +49,10 @@
 
   /* billing switch: monthly or yearly prices, written in the markup */
   var tabs = [].slice.call(document.querySelectorAll('[data-bill]'));
+  var pricing = document.getElementById('pricing');
   function setBill(mode) {
     tabs.forEach(function (t) { t.setAttribute('aria-selected', String(t.getAttribute('data-bill') === mode)); });
+    if (pricing) pricing.setAttribute('data-bill-mode', mode);
     document.querySelectorAll('#pricing [data-monthly]').forEach(function (el) {
       var val = el.getAttribute('data-' + mode);
       var target = el.querySelector('.t-stat') || el;
